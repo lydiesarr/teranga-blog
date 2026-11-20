@@ -1,7 +1,7 @@
 
 // Carte d'un article.
 // Props attendues : article (objet avec id, title, body), et plus tard estFavori, onBasculerFavori.
-export default function ArticleCard({ article }){
+export default function ArticleCard({ article, estFavori, onBasculerFavori }){
   return (
     <article>
       <h3>{article.title}</h3>

@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { API_URL } from "../constants.js";
 import EtatRequete from "../components/EtatRequete.jsx";
@@ -5,7 +6,8 @@ import ListeCommentaires from "../components/ListeCommentaires.jsx";
 import CommentaireForm from "../components/CommentaireForm.jsx";
 // TODO(P403) : Étape 4 puis 5.
 // Détail d'un article (paramètre d'URL id) et ses commentaires.
-export default function Article({ id}) {
+export default function Article() {
+  const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [erreur, setErreur] = useState(null);
@@ -51,6 +53,7 @@ export default function Article({ id}) {
       })
       .then((donnees) => {
         setCommentaires(donnees);
+
         setChargementCom(false);
       })
       .catch((e) => {
